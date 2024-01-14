@@ -1,0 +1,23 @@
+
+
+
+
+<h3>Order placed Successfully:  </h3>
+<p>Order Reference Number: <%= @order.id %></p>
+<p>Customer Information: </p>
+<hr>
+<p>Full Name: <%= @order.first_name %> <%= @order.last_name %></p>
+<p>Email Address: <%= @order.email %></p>
+<p>Mobile Number: <%= @order.mobile %></p>
+<p>Delivery Address: </p>
+<p>Shipping Method: <%= @order.delivery.delivery_method %></p>
+<p>Payment Method: <%= @order.payment.payment_method %></p>
+<p>Summary: </p>
+<hr>
+<p>Subtotal: <%= @sub_total %></p>
+<p>Shipping Fee: <%= @order.delivery.price %></p>
+<p>Convenience Fee: ₱50</p>
+<h3>Grand Total: ₱<%= @order.total_price %></h3>
+
+
+

@@ -48,11 +48,13 @@ module Types
     end
 
     field :product, Types::ProductType, null: true do
-      argument :product_id, Integer, required: true
+      argument :product_id, Integer, required: false
     end
 
     def product(product_id: nil)
-      Product.find(product_id)
+      nil
+      Product.find(product_id) if product_id
+
     end
 
     field :cart_items, [Types::CartItemType], null: true do

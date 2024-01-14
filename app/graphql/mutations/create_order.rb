@@ -61,6 +61,7 @@ class Mutations::CreateOrder < Mutations::BaseMutation
       
       if order.save
         user.cart.cart_items.destroy_all
+        OrderMailer.order_mailer(order.id).deliver_later
         { order: order, errors: [] }
       else
         { order: nil, errors: order.errors.full_messages }
