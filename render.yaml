@@ -1,0 +1,24 @@
+databases:
+  - name: pos_system_rails
+    databaseName: pos_system_rails
+    user: pos_system_rails_user
+
+services:
+  - type: web
+    name: pos_system
+    runtime: ruby
+    region: singapore
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pos_system_rails
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+  - type: redis
+    name: cache
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: noeviction
