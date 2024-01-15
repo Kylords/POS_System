@@ -28,15 +28,7 @@ class Mutations::CreateOrder < Mutations::BaseMutation
   def resolve(order_type: nil, province: nil, city: nil, baranggay: nil, street: nil, room_unit: nil, floor: nil, building: nil, nearest_landmark: nil, remarks: nil, delivery_id: nil, payment_id: nil, first_name: nil, last_name: nil, email: nil, mobile: nil)
       user = context[:current_user]
       user_id = user.id
-      product_ids = user.cart.cart_items.pluck(:product_id)
-      quantities = user.cart.cart_items.pluck(:quantity)
 
-
-
-      
-
-
-      puts 123
 
       status = "Pending"
       province = '' if order_type == 'In-Store'
