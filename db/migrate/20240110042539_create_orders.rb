@@ -7,7 +7,6 @@ class CreateOrders < ActiveRecord::Migration[7.1]
       t.string :delivery_address
       t.string :status
       t.string :total_price
-      t.integer :quantities, array: true, default: []
       t.integer :delivery_id
       t.integer :payment_id
 
