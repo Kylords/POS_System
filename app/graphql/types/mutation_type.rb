@@ -23,6 +23,7 @@ module Types
     field :edit_product, mutation: Mutations::EditProduct
 
     field :edit_delivery, mutation: Mutations::EditDelivery
+    field :edit_payment, mutation: Mutations::EditPayment
     field :edit_enable_delivery, mutation: Mutations::EditEnableDelivery
     field :edit_enable_payment, mutation: Mutations::EditEnablePayment
 
