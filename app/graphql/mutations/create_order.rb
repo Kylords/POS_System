@@ -30,6 +30,16 @@ class Mutations::CreateOrder < Mutations::BaseMutation
         user_id = user.id
         product_ids = user.cart.cart_items.pluck(:product_id)
         status = "Pending"
+        province = '' if order_type == 'In-Store'
+        city = '' if order_type == 'In-Store'
+        baranggay = '' if order_type == 'In-Store'
+        street = '' if order_type == 'In-Store'
+        room_unit = '' if order_type == 'In-Store'
+        floor = '' if order_type == 'In-Store'
+        building = '' if order_type == 'In-Store'
+        remarks = '' if order_type == 'In-Store'
+        nearest_landmark = '' if order_type == 'In-Store'
+
         total_price = user.cart.cart_items.sum { |item| item.total_price.to_f } + Delivery.find(delivery_id).price.to_i + 50
         
         order = Order.new(
