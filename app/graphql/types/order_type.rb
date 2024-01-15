@@ -40,6 +40,7 @@ module Types
     field :payment, Types::PaymentType
     field :delivery, Types::DeliveryType
 
+    field :product_quantities, [Types::ProductQuantityType]
 
     
   end

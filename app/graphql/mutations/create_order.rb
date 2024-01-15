@@ -28,6 +28,8 @@ class Mutations::CreateOrder < Mutations::BaseMutation
   def resolve(order_type: nil, province: nil, city: nil, baranggay: nil, street: nil, room_unit: nil, floor: nil, building: nil, nearest_landmark: nil, remarks: nil, delivery_id: nil, payment_id: nil, first_name: nil, last_name: nil, email: nil, mobile: nil)
       user = context[:current_user]
       user_id = user.id
+      product_ids = user.cart.cart_items.pluck(:product_id)
+      quantities = user.cart.cart_items.pluck(:quantity)
 
 
       status = "Pending"
@@ -74,7 +76,11 @@ class Mutations::CreateOrder < Mutations::BaseMutation
     
     if order.save
       user.cart.cart_items.each do |item|
-        order.product_quantities.create(product_id: item.product_id, quantity: item.quantity)
+        puts 123
+        puts 123
+        puts 123
+        puts item.quantity
+        order.product_quantities.create(product_id: item.product_id, quantity: (item.quantity).to_i)
       end
       user.cart.cart_items.destroy_all
       OrderMailer.order_mailer(order.id).deliver_later
