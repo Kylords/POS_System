@@ -9,7 +9,7 @@ module Types
     field :delivery_address, String
     field :status, String
     field :total_price, String
-    field :quantity, Integer
+    field :quantities, [Integer]
     field :payment_id, Integer
     field :delivery_id, Integer
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
@@ -40,6 +40,8 @@ module Types
 
     field :payment, Types::PaymentType
     field :delivery, Types::DeliveryType
+
+    field :product_quantities, Types::ProductQuantityType
 
     
   end

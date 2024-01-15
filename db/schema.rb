@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_11_130514) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_102519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_130514) do
     t.string "delivery_address"
     t.string "status"
     t.string "total_price"
-    t.integer "quantity"
+    t.integer "quantities", default: [], array: true
     t.integer "delivery_id"
     t.integer "payment_id"
     t.string "province"
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_130514) do
   create_table "orders_products", id: false, force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
+    t.integer "quantity", default: 1
     t.index ["order_id", "product_id"], name: "index_orders_products_on_order_id_and_product_id"
     t.index ["product_id", "order_id"], name: "index_orders_products_on_product_id_and_order_id"
   end
@@ -80,6 +81,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_130514) do
   create_table "payments", force: :cascade do |t|
     t.string "payment_method"
     t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_quantities", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

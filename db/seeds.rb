@@ -29,9 +29,5 @@ Payment.create(payment_method: "Gcash", enabled: true)
 Payment.create(payment_method: "Debit/Credit Card", enabled: true)
 
 
-Order.create(email: 'sample@email.com', first_name: 'Kyle', last_name: 'Jobs', mobile: '091111111', user_id: 1, product_ids: [1], order_type: "online", delivery_address: "Apitong, Loma, Binan, Laguna", status: "Pending", quantity: 1, total_price: "5000", delivery_id: 1, payment_id: 1)
-Order.create(email: 'my@email.com', first_name: 'Stan', last_name: 'Ren', mobile: '092222222', user_id: 1, product_ids: [2], order_type: "online", delivery_address: "Apitong, Loma, Binan, Laguna", status: "Confirmed", quantity: 2, total_price: "1600", delivery_id: 3, payment_id: 1)
-Order.create(email: 'your@email.com', first_name: 'Carl', last_name: 'San', mobile: '093333333', user_id: 1, product_ids: [3], order_type: "online", delivery_address: "Apitong, Loma, Binan, Laguna", status: "Completed", quantity: 1, total_price: "10000", delivery_id: 2, payment_id: 3)
-Order.create(email: 'nice@email.com', first_name: 'Steve', last_name: 'Tan', mobile: '093333333', user_id: 1, product_ids: [1, 3], order_type: "online", delivery_address: "Apitong, Loma, Binan, Laguna", status: "Pending", quantity: 1, total_price: "5000", delivery_id: 1, payment_id: 2)
 
 CartItem.create(cart_id: 1, product_id: 1, quantity: "1", total_price: "5000")
