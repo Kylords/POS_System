@@ -14,7 +14,7 @@ Product.create(category_id: 2, name: "Aircon", product_type: "physical", descrip
 
 
 
-Delivery.create(delivery_method: "In-store", price: "0", enabled: false)
+Delivery.create(delivery_method: "In-Store", price: "0", enabled: false)
 
 Delivery.create(delivery_method: "Standard", price: "40", enabled: true)
 
