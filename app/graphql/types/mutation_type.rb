@@ -31,6 +31,7 @@ module Types
     field :create_payment, mutation: Mutations::CreatePayment
 
     field :change_order_status, mutation: Mutations::ChangeOrderStatus
+    field :delete_order, mutation: Mutations::DeleteOrder
 
     
   end
